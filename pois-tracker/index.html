@@ -103,6 +103,12 @@
     margin-bottom:18px;box-shadow:0 6px 16px rgba(75,58,224,.28)}
   .step h3{font-size:18px;letter-spacing:-.02em;margin:0 0 7px}
   .step p{color:var(--muted);font-size:14.5px;margin:0}
+  .guidebtn{display:inline-block;font-size:15.5px;font-weight:650;color:var(--indigo);background:var(--surface);
+    border:1.5px solid var(--indigo);border-radius:12px;padding:13px 28px;text-decoration:none;transition:background .15s,color .15s}
+  .guidebtn:hover{background:var(--indigo);color:#fff}
+  .navend{display:flex;align-items:center;gap:20px}
+  .navlink{font-size:14.5px;font-weight:600;color:var(--muted);text-decoration:none}
+  .navlink:hover{color:var(--ink)}
 
   /* showcase */
   .show{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;margin-top:70px}
@@ -170,7 +176,7 @@
 <nav>
   <div class="wrap navrow">
     <div class="brand"><img class="mark" src="apple-touch-icon.png" alt="POIS Tracker"><span>POIS&nbsp;Tracker</span></div>
-    <a class="navcta" href="https://apps.apple.com/app/id6787156068">Get the app</a>
+    <div class="navend"><a class="navlink" href="guide/">Guide</a><a class="navcta" href="https://apps.apple.com/app/id6787156068">Get the app</a></div>
   </div>
 </nav>
 
@@ -239,6 +245,7 @@
       <div class="step rev"><div class="stepn">3</div><h3>See what helps you</h3><p>It shows what lines up with your better and worse days — with honest confidence, and “not enough data yet” when that’s the truth.</p></div>
       <div class="step rev"><div class="stepn">4</div><h3>Learn from others</h3><p>Optionally turn on anonymous sharing to compare your pattern with people like you. Your raw logs never leave your phone.</p></div>
     </div>
+    <div class="center" style="margin-top:46px"><a class="guidebtn" href="guide/">Read the full guide&nbsp;→</a></div>
   </div>
 </section>
 

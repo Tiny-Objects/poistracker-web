@@ -1,0 +1,181 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>POIS Tracker — The complete guide</title>
+<meta name="description" content="How POIS Tracker works, feature by feature: logging, your recovery curve, honest insights, n-of-1 trials, the anonymous community, and exporting for your doctor.">
+<link rel="canonical" href="https://tinyobjects.studio/pois-tracker/guide/">
+<meta name="theme-color" content="#EEF2FB">
+<meta property="og:type" content="article"><meta property="og:title" content="POIS Tracker — The complete guide">
+<meta property="og:description" content="Every feature explained: logging, recovery curve, honest insights, trials, community, doctor export.">
+<meta property="og:url" content="https://tinyobjects.studio/pois-tracker/guide/"><meta property="og:image" content="https://tinyobjects.studio/pois-tracker/og.jpg">
+<link rel="icon" href="../favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png"><link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<style>
+  :root{
+    --ground:#EEF2FB; --surface:#FFFFFF; --ink:#141631; --muted:#59607A; --faint:#8991AB;
+    --hair:#E3E8F3; --indigo:#4B3AE0; --violet:#8B7FF5; --cyan:#2CA6BC; --good:#38A05F;
+    --bezel:#171633;
+    --sans:-apple-system,system-ui,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--indigo)}
+  .doc{max-width:740px;margin:0 auto;padding:0 24px}
+  nav{display:flex;align-items:center;justify-content:space-between;height:66px;max-width:740px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.02em;text-decoration:none;color:var(--ink)}
+  .brand img{width:28px;height:28px;border-radius:7px}
+  .back{font-size:14.5px;font-weight:600;color:var(--muted);text-decoration:none}
+  header{padding:44px 0 8px}
+  .eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--indigo)}
+  header h1{font-size:40px;letter-spacing:-.03em;line-height:1.08;margin:12px 0 14px}
+  header .lead{font-size:18.5px;color:var(--muted);max-width:60ch}
+  .toc{background:var(--surface);border:1px solid var(--hair);border-radius:18px;padding:22px 24px;margin:34px 0 8px}
+  .toc h2{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin:0 0 12px}
+  .toc ol{margin:0;padding-left:20px;columns:2;column-gap:34px}
+  @media(max-width:560px){.toc ol{columns:1}}
+  .toc li{margin:5px 0}
+  .toc a{text-decoration:none;font-weight:550;font-size:15px}
+  .toc a:hover{text-decoration:underline}
+  section.g{padding:40px 0 8px;border-top:1px solid var(--hair);margin-top:36px}
+  section.g:first-of-type{border-top:none}
+  .num{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;
+    font-size:14px;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--indigo),var(--violet));margin-right:11px;vertical-align:middle}
+  section.g h2{font-size:25px;letter-spacing:-.02em;margin:0 0 14px;scroll-margin-top:20px}
+  section.g p{color:#2C3050;font-size:16.5px;margin:0 0 14px}
+  section.g ul{color:#2C3050;font-size:16.5px;margin:0 0 14px;padding-left:22px}
+  section.g li{margin:6px 0}
+  .tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+    color:var(--indigo);background:#ECEAFF;border-radius:6px;padding:3px 9px;margin-bottom:12px}
+  .callout{background:#E8F5EE;border:1px solid #CBE8D6;border-left:4px solid var(--good);border-radius:12px;
+    padding:15px 18px;margin:6px 0 16px;font-size:15.5px;color:#1F3D2C}
+  .callout.priv{background:#EAF6F8;border-color:#CBE7EC;border-left-color:var(--cyan);color:#173B41}
+  .callout b{font-weight:700}
+  .shot{text-align:center;margin:22px 0 6px}
+  .shot img{width:min(280px,72%);border-radius:30px;border:7px solid var(--bezel);box-shadow:0 18px 40px rgba(23,22,51,.18)}
+  .shot figcaption{font-size:13.5px;color:var(--faint);margin-top:10px}
+  .end{background:var(--ink);color:#fff;border-radius:22px;padding:36px 30px;text-align:center;margin:46px 0}
+  .end h2{font-size:26px;letter-spacing:-.02em;margin:0 0 8px}
+  .end p{color:rgba(255,255,255,.66);margin:0 0 20px}
+  .asbadge{display:inline-block;line-height:0}
+  footer{color:var(--faint);font-size:13.5px;text-align:center;padding:26px 0 48px}
+  footer a{color:var(--muted);text-decoration:none}
+</style></head><body>
+
+<nav>
+  <a class="brand" href="../"><img src="../apple-touch-icon.png" alt="">POIS Tracker</a>
+  <a class="back" href="../">← Back</a>
+</nav>
+
+<div class="doc">
+<header>
+  <div class="eyebrow">The complete guide</div>
+  <h1>Everything POIS Tracker does, explained.</h1>
+  <p class="lead">POIS Tracker helps you track post-orgasmic illness syndrome (POIS) day by day, see what actually helps you — honestly — and learn from an anonymous community. Here’s how every part works.</p>
+
+  <div class="toc">
+    <h2>In this guide</h2>
+    <ol>
+      <li><a href="#start">Getting started</a></li>
+      <li><a href="#log">Logging your day</a></li>
+      <li><a href="#recovery">Your recovery curve</a></li>
+      <li><a href="#insights">What actually helps you</a></li>
+      <li><a href="#trials">Running a trial</a></li>
+      <li><a href="#factors">Your factors library</a></li>
+      <li><a href="#community">The community</a></li>
+      <li><a href="#doctor">Export for your doctor</a></li>
+      <li><a href="#privacy">Privacy &amp; your data</a></li>
+      <li><a href="#honest">A few honest caveats</a></li>
+    </ol>
+  </div>
+</header>
+
+<section class="g" id="start">
+  <h2><span class="num">1</span>Getting started</h2>
+  <p>The first time you open the app, a short setup asks about your symptoms and anything you’ve already noticed helps or hurts. This sets a sensible starting point — you can skip it, and change everything later.</p>
+  <p>You can turn on a <b>Face ID / passcode lock</b> so only you can open the app. Nothing is shared and no account is needed — everything starts private and on your device.</p>
+</section>
+
+<section class="g" id="log">
+  <h2><span class="num">2</span>Logging your day</h2>
+  <span class="tag">Log tab</span>
+  <p>Each day, you log three simple things: your overall <b>wellbeing</b>, any <b>symptoms</b> and how strong they are, and what you <b>did</b> — treatments, supplements, and habits. You also mark the days you had an “O”.</p>
+  <p>It’s built to take <b>under a minute</b>. A quick daily tap is all it needs.</p>
+  <div class="callout"><b>Why consistency matters:</b> the app finds patterns from the <i>contrast</i> between your days — days with something versus days without it. Logging your normal days (not just the bad ones) is what makes the results trustworthy.</div>
+</section>
+
+<section class="g" id="recovery">
+  <h2><span class="num">3</span>Your recovery curve</h2>
+  <span class="tag">Me tab</span>
+  <p>Once you’ve logged a few “O” events, the app draws your <b>typical recovery</b> — how your wellbeing and symptoms dip and bounce back over the days that follow.</p>
+  <p>It’s shown as a <b>band</b> (your typical range), not a single line, so you can see how consistent your recovery actually is. Tap in to see each symptom on its own — fatigue and brain fog, for example, often recover at different speeds.</p>
+  <div class="shot"><img src="../img/recovery.jpg" alt="Recovery-after-O curve on the Me tab"><figcaption>Your typical recovery after an “O”, with a per-symptom drill-in.</figcaption></div>
+</section>
+
+<section class="g" id="insights">
+  <h2><span class="num">4</span>What actually helps you</h2>
+  <span class="tag">Me tab</span>
+  <p>The app looks at everything you log and finds what lines up with your <b>better and worse days</b>. Each factor gets a plain-language read — “seems to help you”, “seems to make things worse”, or “no clear effect yet”.</p>
+  <p><b>Honest confidence is the whole point.</b> Every result comes with how sure it is, and when there isn’t enough data it says <i>“not enough data yet”</i> instead of pretending. It also adjusts for your other factors — so it won’t confuse two things you always do together — and it’s deliberately strict about false positives.</p>
+  <p>Tap any factor to open its detail: your own impression, the measured effect, the confidence level, and how many days it’s based on.</p>
+  <div class="shot"><img src="../img/insights.jpg" alt="Per-factor insight detail with confidence"><figcaption>Each factor, with an honest confidence level — never fake certainty.</figcaption></div>
+</section>
+
+<section class="g" id="trials">
+  <h2><span class="num">5</span>Running a trial</h2>
+  <span class="tag">Me tab · your own experiments</span>
+  <p>Noticing a pattern is a start; <b>proving</b> it is better. A trial is a small, randomised on/off experiment on a single treatment — the app schedules which days you take it, so you end up comparing yourself to yourself under fair conditions.</p>
+  <p>At the end you get a verdict on whether it genuinely helped. It’s the strongest evidence you can get on your own, and it’s how you separate a real effect from a lucky week.</p>
+</section>
+
+<section class="g" id="factors">
+  <h2><span class="num">6</span>Your factors library</h2>
+  <span class="tag">Factors tab</span>
+  <p>A library of treatments, supplements, and lifestyle habits — dozens are built in. Turn on the ones relevant to you, and they become the factors the app analyses.</p>
+  <p>You can also give any factor a quick <b>“Feel” rating</b> (better / worse) to capture your gut impression. That’s stored separately from the data — your opinion never gets mistaken for measured evidence.</p>
+</section>
+
+<section class="g" id="community">
+  <h2><span class="num">7</span>The community</h2>
+  <span class="tag">Community tab · optional &amp; anonymous</span>
+  <p>If you opt in, the app shares privacy-preserving <b>summaries</b> of what helped you — never your notes, dates, or identity. In return, you see what tends to help across everyone:</p>
+  <ul>
+    <li><b>Discoveries</b> — what the community reports helps or hurts, ranked by evidence.</li>
+    <li><b>You vs the community</b> — your own result next to the anonymous pattern for people like you.</li>
+    <li><b>Factor pairs</b> — combinations that seem to work together (or against each other).</li>
+    <li><b>Recovery with vs without</b> — how a factor changes the typical recovery curve across everyone.</li>
+    <li><b>Shared trials</b> — real on/off experiments other people ran, not anecdotes.</li>
+  </ul>
+  <div class="callout priv"><b>The 3-person floor:</b> a result only appears once at least three people have contributed it, so nothing can ever be traced back to one person. You can withdraw and delete your contribution at any time.</div>
+  <div class="shot"><img src="../img/community.jpg" alt="Community discoveries screen"><figcaption>What tends to help across the community — evidence, not hearsay.</figcaption></div>
+</section>
+
+<section class="g" id="doctor">
+  <h2><span class="num">8</span>Export for your doctor</h2>
+  <p>POIS is often dismissed because there’s nothing concrete to show. The app turns months of logs into a <b>clean PDF summary</b> you can hand to a healthcare professional — your recovery pattern, what you’ve tried, and what the data suggests, readable in a minute.</p>
+</section>
+
+<section class="g" id="privacy">
+  <h2><span class="num">9</span>Privacy &amp; your data</h2>
+  <p>Your <b>raw logs never leave your device</b>. The community layer is entirely opt-in, and the only thing that can ever leave is anonymous summary statistics — no notes, no dates, no identity, no account.</p>
+  <p>You can withdraw from the community, and delete everything, whenever you want. An optional Face ID / passcode lock keeps the app itself private.</p>
+</section>
+
+<section class="g" id="honest">
+  <h2><span class="num">10</span>A few honest caveats</h2>
+  <ul>
+    <li><b>It’s not medical advice.</b> It doesn’t diagnose or treat anything — it helps you see your own patterns and bring real data to a doctor.</li>
+    <li><b>It needs data.</b> The first couple of weeks are about building enough history to see clear patterns. Early on you’ll see “not enough data yet” — that’s the app being honest, not broken.</li>
+    <li><b>Confidence, not certainty.</b> It always tells you how sure a result is, and when it isn’t sure at all.</li>
+  </ul>
+</section>
+
+<div class="end">
+  <h2>Ready to start?</h2>
+  <p>Log your first day in under a minute.</p>
+  <a class="asbadge" href="https://apps.apple.com/app/id6787156068" aria-label="Download on the App Store"><svg width="150" viewBox="0 0 124 40" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true"><rect x=".5" y=".5" width="123" height="39" rx="8.5" fill="#000" stroke="rgba(255,255,255,.28)"/><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" fill="#fff" transform="translate(9.5 9.6) scale(.86)"/><text x="37" y="16.5" fill="#fff" font-family="-apple-system,system-ui,Helvetica,Arial,sans-serif" font-size="7.6" letter-spacing=".28">Download on the</text><text x="36.4" y="31" fill="#fff" font-family="-apple-system,system-ui,Helvetica,Arial,sans-serif" font-size="16.5" font-weight="600" letter-spacing="-.3">App Store</text></svg></a>
+</div>
+
+<footer>
+  <a href="../">POIS Tracker</a> · <a href="https://tiny-objects.github.io/pois-tracker-legal/privacy-policy.html">Privacy</a> · <a href="https://ko-fi.com/tinyobjects">Support</a><br>
+  © 2026 Tiny Objects
+</footer>
+</div>
+</body></html>
