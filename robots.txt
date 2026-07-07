@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tiny-objects.github.io/poistracker-web/sitemap.xml
+Sitemap: https://tinyobjects.studio/sitemap.xml
