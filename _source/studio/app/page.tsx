@@ -1,11 +1,13 @@
 // Tiny Objects — studio home page.
-// Add `url` to an app to make its row a link (opens in a new tab).
+// Add `url` to an app to make its row a link.
+//   - a path like "/arcana" is a page on this site  -> opens in the same tab
+//   - a full "https://..." address is somewhere else -> opens in a new tab
 // Apps without a url render as a plain, non-clickable row.
 const apps: { name: string; icon: string; url?: string }[] = [
-  { name: "Arcana Desk", icon: "/app-icons/arcana-desk.png" },
+  { name: "Arcana Desk", icon: "/app-icons/arcana-desk.png", url: "/arcana" },
   { name: "Doraemon Tarot", icon: "/app-icons/doraemon-tarot.png", url: "https://tarot-doraemon.netlify.app" },
   { name: "The Game", icon: "/app-icons/the-game.png" },
-  { name: "Relay", icon: "/app-icons/relay.png" },
+  { name: "Relay", icon: "/app-icons/relay.png", url: "/relay" },
   { name: "AI Dungeon Master", icon: "/app-icons/ai-dungeon-master.png" },
   { name: "Mushroom Log", icon: "/app-icons/mushroom-log.png" },
   { name: "Warranty Box", icon: "/app-icons/warranty-box.png" },
@@ -95,8 +97,15 @@ function Row({
 
   if (!app.url) return <div className="app-row">{inner}</div>;
 
+  // Internal pages stay in the tab; anything off-site opens in a new one.
+  const external = !app.url.startsWith("/");
+
   return (
-    <a className="app-row app-row-link" href={app.url} target="_blank" rel="noopener">
+    <a
+      className="app-row app-row-link"
+      href={app.url}
+      {...(external ? { target: "_blank", rel: "noopener" } : {})}
+    >
       {inner}
     </a>
   );
