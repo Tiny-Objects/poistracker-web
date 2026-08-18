@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ====== SEO ====== -->
+<title>The_Game.exe — you just lost The Game</title>
+<meta name="description" content="The retro social app for the game you're always losing. Tap 'I Lost The Game' and drop your whole crew into a 30-minute cooldown. 16 collectible retro themes, loser leaderboards, glorious chaos. Free on iOS.">
+<link rel="canonical" href="https://tinyobjects.studio/the-game-exe/">
+<meta name="theme-color" content="#178f8f">
+<link rel="icon" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tiny Objects Software">
+<meta property="og:title" content="The_Game.exe — you just lost The Game">
+<meta property="og:description" content="The retro social app for the game you're always losing. One tap drops your whole crew into a 30-minute cooldown. Free on iOS.">
+<meta property="og:url" content="https://tinyobjects.studio/the-game-exe/">
+<meta property="og:image" content="https://tinyobjects.studio/the-game-exe/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The_Game.exe — you just lost The Game">
+<meta name="twitter:description" content="The retro social app for the game you're always losing. Free on iOS.">
+<meta name="twitter:image" content="https://tinyobjects.studio/the-game-exe/og-image.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"MobileApplication","name":"The_Game.exe","operatingSystem":"iOS","applicationCategory":"SocialNetworkingApplication","url":"https://apps.apple.com/app/id6791900364","image":"https://tinyobjects.studio/the-game-exe/icon.png","description":"The retro social app for the game you're always losing. Tap 'I Lost The Game' and drop your whole crew into a 30-minute cooldown.","author":{"@type":"Organization","name":"Tiny Objects Software"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+</script>
+
+<style>
+/* Fontes servidas deste domínio: sem pedidos ao Google (privacidade dos
+   visitantes) e sem uma ligação extra a atrasar o primeiro desenho. */
+@font-face{font-family:"Press Start 2P";src:url(fonts/PressStart.woff2) format("woff2"),url(fonts/PressStart.ttf) format("truetype");font-display:swap}
+@font-face{font-family:"VT323";src:url(fonts/VT323.woff2) format("woff2"),url(fonts/VT323.ttf) format("truetype");font-display:swap}
+</style>
+
+<style>
+  picture{display:contents}source{display:none}
+  :root{
+    --teal:#178f8f; --teal-2:#0f6e6e; --gray:#c3c3c3; --gray-lo:#8a8a8a;
+    --navy:#00007b; --yellow:#ffe000; --green:#2fa62f; --magenta:#e0218a;
+    --ink:#0a0a0a; --paper:#f6f6f0;
+    --pix:"Press Start 2P",monospace; --term:"VT323",monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--teal);color:var(--ink);font-family:var(--term);font-size:22px;line-height:1.35;
+       background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+       background-size:32px 32px}
+  h1,h2,h3,.pix{font-family:var(--pix);line-height:1.5;letter-spacing:1px}
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  section{padding:56px 0}
+
+  /* Windows-9x window */
+  .win{background:var(--gray);border:2px solid #fff;border-right-color:#3a3a3a;border-bottom-color:#3a3a3a;
+       box-shadow:5px 5px 0 rgba(0,0,0,.35);padding:3px}
+  .win-in{border:2px solid var(--gray-lo);border-right-color:#fff;border-bottom-color:#fff;padding:22px}
+  .bar{background:var(--navy);color:#fff;font-family:var(--pix);font-size:11px;display:flex;align-items:center;
+       justify-content:space-between;padding:8px 10px;margin:-3px -3px 0}
+  .bar .dots{display:flex;gap:4px}
+  .bar .dots b{width:16px;height:14px;background:var(--gray);border:1px solid #fff;border-right-color:#3a3a3a;border-bottom-color:#3a3a3a;display:block}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--pix);font-size:13px;text-decoration:none;
+       padding:16px 22px;cursor:pointer;border:3px solid #fff;border-right-color:#3a3a3a;border-bottom-color:#3a3a3a}
+  .btn:active{border-color:#3a3a3a;border-right-color:#fff;border-bottom-color:#fff}
+  .btn-store{background:var(--ink);color:#fff}
+  .btn-lose{background:var(--yellow);color:var(--ink)}
+
+  .hero{padding-top:48px}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:center}
+  .hero h1{font-size:30px;margin:0 0 14px}
+  .hero .tagline{color:var(--magenta);font-family:var(--pix);font-size:13px;margin:0 0 18px}
+  .icon{image-rendering:pixelated;width:104px;height:104px;border:2px solid #3a3a3a;box-shadow:4px 4px 0 rgba(0,0,0,.3)}
+  .meta{font-size:20px;color:#204d4d;margin-top:16px}
+
+  .shots{display:flex;gap:18px;overflow-x:auto;padding:8px 4px 18px;scroll-snap-type:x mandatory}
+  .shots img{height:520px;width:auto;image-rendering:auto;border:3px solid #fff;border-right-color:#3a3a3a;border-bottom-color:#3a3a3a;
+             box-shadow:4px 4px 0 rgba(0,0,0,.3);scroll-snap-align:center;flex:0 0 auto}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .step .n{font-family:var(--pix);font-size:26px;color:var(--magenta)}
+  .step h3{font-size:13px;margin:10px 0 8px}
+
+  .themes{display:flex;flex-wrap:wrap;gap:10px}
+  .chip{font-family:var(--pix);font-size:10px;padding:9px 12px;border:2px solid #fff;border-right-color:#3a3a3a;border-bottom-color:#3a3a3a;background:var(--gray)}
+
+  .center{text-align:center}
+  .cta-row{display:flex;gap:16px;flex-wrap:wrap}
+  footer{background:var(--teal-2);border-top:3px solid rgba(0,0,0,.25)}
+  footer a{font-family:var(--term);font-size:22px;text-decoration:none;color:#eaffff}
+  footer a:hover{color:var(--yellow)}
+  .cursor{display:inline-block;width:11px;height:20px;background:var(--green);vertical-align:-3px;animation:bl 1.1s steps(1) infinite}
+  @keyframes bl{50%{opacity:0}}
+
+  @media(max-width:760px){
+    body{font-size:20px}
+    .hero-grid,.steps{grid-template-columns:1fr}
+    .hero h1{font-size:22px}
+    .hero{padding-top:24px}
+    .shots img{height:420px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap">
+    <div class="win">
+      <div class="bar"><span>THE_GAME.EXE</span><span class="dots"><b></b><b></b><b></b></span></div>
+      <div class="win-in">
+        <div class="hero-grid">
+          <div>
+            <p class="tagline">&gt; you just lost The Game</p>
+            <h1>YOU'RE PLAYING.<br>RIGHT NOW.</h1>
+            <p>You know the one. The moment you remember it exists, you've lost. There's no winning — only forgetting. Except now, losing is a <b>team sport</b>: one tap crashes your whole crew into a 30-minute cooldown.</p>
+            <div class="cta-row" style="margin-top:22px">
+              <a class="btn btn-store" href="https://apps.apple.com/app/id6791900364">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M16.4 12.6c0-2 1.6-3 1.7-3-.9-1.4-2.4-1.5-2.9-1.6-1.2-.1-2.4.7-3 .7-.6 0-1.6-.7-2.6-.7-1.3 0-2.6.8-3.2 2-1.4 2.4-.4 6 1 8 .7 1 1.4 2 2.4 2 1 0 1.3-.6 2.5-.6 1.2 0 1.5.6 2.5.6 1 0 1.7-1 2.3-2 .7-1.1 1-2.2 1-2.3-.1 0-2-.8-2.2-3.1zM14.7 6.3c.5-.7.9-1.6.8-2.5-.8 0-1.7.5-2.3 1.2-.5.6-.9 1.5-.8 2.4.9.1 1.8-.4 2.3-1.1z"/></svg>
+                Download on the App Store
+              </a>
+            </div>
+            <p class="meta">Free · iOS 17+ · Sign in with Apple <span class="cursor"></span></p>
+          </div>
+          <div class="center">
+            <picture><source type="image/webp" srcset="icon.webp"><img class="icon" src="icon.png" alt="The_Game.exe app icon — a green pixel bug" style="width:150px;height:150px" width="1024" height="1024" decoding="async"></picture>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section class="wrap">
+  <div class="win">
+    <div class="bar"><span>HOW_IT_WORKS.TXT</span><span class="dots"><b></b><b></b><b></b></span></div>
+    <div class="win-in">
+      <div class="steps">
+        <div class="step"><div class="n">01</div><h3>YOU'RE ALWAYS PLAYING</h3><p>So is everyone in your parties. There's no opting out. Sorry.</p></div>
+        <div class="step"><div class="n">02</div><h3>OWN UP</h3><p>The second you remember, tap <b>I LOST THE GAME</b>. Every active party goes down with you.</p></div>
+        <div class="step"><div class="n">03</div><h3>COOLDOWN</h3><p>The whole crew drops into a 30-minute cooldown. Nobody loses again — blissful, guilt-free peace.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SCREENSHOTS ================= -->
+<section class="wrap">
+  <h2 class="center" style="color:#eaffff;font-size:15px;margin:0 0 24px">PICK YOUR ERA · 16 RETRO THEMES</h2>
+  <div class="shots">
+    <picture><source type="image/webp" srcset="screenshots/1.webp"><img src="screenshots/1.png" alt="Losing screen in the Classic theme" loading="lazy" width="550" height="1195" decoding="async"></picture>
+    <picture><source type="image/webp" srcset="screenshots/2.webp"><img src="screenshots/2.png" alt="Parties, in the Windows XP theme" loading="lazy" width="550" height="1195" decoding="async"></picture>
+    <picture><source type="image/webp" srcset="screenshots/3.webp"><img src="screenshots/3.png" alt="The theme store with 16 retro themes" loading="lazy" width="550" height="1195" decoding="async"></picture>
+    <picture><source type="image/webp" srcset="screenshots/4.webp"><img src="screenshots/4.png" alt="The game screen across five different themes" loading="lazy" width="550" height="1195" decoding="async"></picture>
+    <picture><source type="image/webp" srcset="screenshots/5.webp"><img src="screenshots/5.png" alt="Friends leaderboard in the Phosphor theme" loading="lazy" width="550" height="1195" decoding="async"></picture>
+  </div>
+</section>
+
+<!-- ================= THEMES + BUG ================= -->
+<section class="wrap">
+  <div class="win">
+    <div class="bar"><span>APPEARANCE.EXE</span><span class="dots"><b></b><b></b><b></b></span></div>
+    <div class="win-in">
+      <h3 style="margin:0 0 14px;font-size:13px">The whole app re-skins into a different era — windows, buttons, fonts and desktop all change.</h3>
+      <div class="themes">
+        <span class="chip">Classic 9X</span><span class="chip">DOS Prompt</span><span class="chip">XP Luna</span>
+        <span class="chip">Phosphor</span><span class="chip">48K BASIC</span><span class="chip">Workbench</span>
+        <span class="chip">Pocket LCD</span><span class="chip">16-BIT Deck</span><span class="chip">Teletext</span>
+        <span class="chip">1-BIT System</span><span class="chip">Tab OS</span><span class="chip">Guestbook</span>
+        <span class="chip">Media Deck</span><span class="chip">Buddy Chat</span><span class="chip">Chat Relay</span>
+        <span class="chip">Code Dark</span>
+      </div>
+      <p style="margin-top:18px">Two themes are free (Classic 9X and DOS Prompt). The rest are optional one-time in-app purchases — cosmetic only, no gameplay advantage.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="wrap center">
+  <div class="win" style="display:inline-block;text-align:left;max-width:640px">
+    <div class="bar"><span>THE_BUG.SYS</span><span class="dots"><b></b><b></b><b></b></span></div>
+    <div class="win-in center">
+      <picture><source type="image/webp" srcset="icon.webp"><img class="icon" src="icon.png" alt="The Bug mascot" style="width:88px;height:88px" width="1024" height="1024" decoding="async"></picture>
+      <h2 style="font-size:16px;margin:16px 0 8px">MEET THE BUG</h2>
+      <p style="margin:0 0 22px">Your dry, unbothered mascot. It would rather you forgot it existed. It won't.</p>
+      <a class="btn btn-lose" href="https://apps.apple.com/app/id6791900364">GET THE_GAME.EXE →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap center" style="padding:34px 20px">
+    <p style="margin:0 0 14px">
+      <a href="https://the-game-98861.web.app/privacy">privacy</a> ·
+      <a href="https://the-game-98861.web.app/terms">terms</a> ·
+      <a href="https://the-game-98861.web.app/support">support</a> ·
+      <a href="mailto:hello@tinyobjects.studio">hello@tinyobjects.studio</a>
+    </p>
+    <p style="margin:0;color:#bfeaea">© 2026 Tiny Objects Software <span class="cursor"></span></p>
+  </div>
+</footer>
+
+</body>
+</html>

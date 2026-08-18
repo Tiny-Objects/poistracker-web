@@ -8,6 +8,7 @@ is what the public sees, immediately.
 https://tinyobjects.studio            →  /index.html          (studio home)
 https://tinyobjects.studio/arcana/             →  /arcana/             (Arcana Desk landing)
 https://tinyobjects.studio/relay/              →  /relay/              (RELAY landing)
+https://tinyobjects.studio/the-game-exe/       →  /the-game-exe/       (The_Game.exe landing)
 https://tinyobjects.studio/arcana/privacy/     →  /arcana/privacy/     (Arcana Desk privacy)
 https://tinyobjects.studio/arcana/terms/       →  /arcana/terms/       (Arcana Desk terms)
 https://tinyobjects.studio/pois-tracker/       →  /pois-tracker/       (POIS Tracker landing)
@@ -58,7 +59,7 @@ npm run build          # → produces _source/studio/out/
 # copy the build to the repo root, preserving what must survive:
 cd ../..
 rsync -a --delete \
-  --exclude 'pois-tracker/' --exclude 'arcana/' --exclude 'relay/' \
+  --exclude 'pois-tracker/' --exclude 'arcana/' --exclude 'relay/' --exclude 'the-game-exe/' \
   --exclude 'CNAME' --exclude '.nojekyll' --exclude 'README.md' \
   --exclude '_source/' --exclude '.git/' --exclude 'robots.txt' --exclude 'sitemap.xml' \
   _source/studio/out/ ./
@@ -79,6 +80,7 @@ would therefore be destroyed:
 | `pois-tracker/` | Hand-written landing + guide. **Rule 1** — never touch |
 | `arcana/` | Hand-written landing, privacy and terms for Arcana Desk. Not part of the Next export, but live, linked from the home and listed in the sitemap |
 | `relay/` | Hand-written landing for RELAY, plus its own favicons and OG image. Same deal as `arcana/` |
+| `the-game-exe/` | Hand-written landing for The_Game.exe, with its screenshots, self-hosted fonts and OG image |
 | `CNAME`, `.nojekyll` | **Rule 2** — the domain and the CSS |
 | `robots.txt`, `sitemap.xml` | Hand-maintained; the studio sitemap must stay POIS-free |
 | `README.md` | This file |
@@ -95,6 +97,7 @@ curl -sI https://tinyobjects.studio/ | head -1                       # 200
 curl -sI https://tinyobjects.studio/pois-tracker/ | head -1          # 200  ← must not break
 curl -sI https://tinyobjects.studio/arcana/ | head -1                # 200  ← must not break
 curl -sI https://tinyobjects.studio/relay/ | head -1                 # 200  ← must not break
+curl -sI https://tinyobjects.studio/the-game-exe/ | head -1          # 200  ← must not break
 curl -s https://tinyobjects.studio/ | grep -c pois                   # 0    ← no POIS on home
 curl -s https://tinyobjects.studio/sitemap.xml | grep -c pois        # 0    ← nor in the sitemap
 curl -s https://tinyobjects.studio/ | grep -c 'href="/arcana"'       # 1    ← Arcana row still links

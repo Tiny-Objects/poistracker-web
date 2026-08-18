@@ -6,7 +6,7 @@
 const apps: { name: string; icon: string; url?: string }[] = [
   { name: "Arcana Desk", icon: "/app-icons/arcana-desk.png", url: "/arcana" },
   { name: "Doraemon Tarot", icon: "/app-icons/doraemon-tarot.png", url: "https://tarot-doraemon.netlify.app" },
-  { name: "The Game", icon: "/app-icons/the-game.png" },
+  { name: "The Game", icon: "/app-icons/the-game.png", url: "/the-game-exe" },
   { name: "Relay", icon: "/app-icons/relay.png", url: "/relay" },
   { name: "AI Dungeon Master", icon: "/app-icons/ai-dungeon-master.png" },
   { name: "Mushroom Log", icon: "/app-icons/mushroom-log.png" },
