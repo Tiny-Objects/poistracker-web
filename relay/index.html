@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- ============================================================= -->
+<!--  RELAY — bloco de SEO para colar dentro do <head> da página   -->
+<!--                                                               -->
+<!--  URLs assumidos:                                              -->
+<!--    página : https://tinyobjects.studio/relay/                 -->
+<!--    assets : https://tinyobjects.studio/relay/ (mesma pasta)   -->
+<!--  Se a página ou as imagens ficarem noutro caminho, troca os   -->
+<!--  URLs marcados com  [URL]  abaixo. Têm de ser ABSOLUTOS       -->
+<!--  (https://…) — o Open Graph e o Twitter não aceitam relativos.-->
+<!-- ============================================================= -->
+
+<!-- Básico -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RELAY — Retro Chat That Forgets | tiny objects</title>
+<meta name="description" content="RELAY is a retro chat app where conversations disappear. Each room keeps only its last 40 messages — the rest dissolves, for good. A 90s desktop with themes, mini-games and a hidden shooter. Free on the App Store.">
+<link rel="canonical" href="https://tinyobjects.studio/relay/"><!-- [URL] página -->
+<meta name="author" content="tiny objects">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#009193">
+
+<!-- Ícones (favicon + Apple) -->
+<link rel="icon" href="https://tinyobjects.studio/relay/favicon.ico" sizes="any"><!-- [URL] -->
+<link rel="icon" type="image/png" sizes="32x32" href="https://tinyobjects.studio/relay/favicon-32.png"><!-- [URL] -->
+<link rel="icon" type="image/png" sizes="48x48" href="https://tinyobjects.studio/relay/favicon-48.png"><!-- [URL] -->
+<link rel="apple-touch-icon" sizes="180x180" href="https://tinyobjects.studio/relay/apple-touch-icon.png"><!-- [URL] -->
+
+<!-- Open Graph (Facebook, WhatsApp, LinkedIn, iMessage, Slack…) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="tiny objects">
+<meta property="og:title" content="RELAY — Retro Chat That Forgets">
+<meta property="og:description" content="A 90s-style chat where every conversation dissolves. Themes, mini-games and a hidden shooter. Free on the App Store.">
+<meta property="og:url" content="https://tinyobjects.studio/relay/"><!-- [URL] página -->
+<meta property="og:image" content="https://tinyobjects.studio/relay/relay-og.png"><!-- [URL] imagem social -->
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="RELAY — a retro chat that forgets on purpose. By tiny objects.">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="RELAY — Retro Chat That Forgets">
+<meta name="twitter:description" content="A 90s-style chat where every conversation dissolves. Themes, mini-games and a hidden shooter. Free on the App Store.">
+<meta name="twitter:image" content="https://tinyobjects.studio/relay/relay-og.png"><!-- [URL] -->
+<meta name="twitter:image:alt" content="RELAY — a retro chat that forgets on purpose.">
+
+<!-- Apple Smart App Banner: mostra "Get" no Safari iOS -->
+<meta name="apple-itunes-app" content="app-id=6792389950">
+
+<!-- Dados estruturados: faz o Google mostrar a app como resultado rico -->
+<!-- (nome, categoria, preço, estrelas, botão para a App Store).        -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "RELAY — Retro Chat",
+  "alternateName": "RELAY",
+  "operatingSystem": "iOS 17.0 or later",
+  "applicationCategory": "SocialNetworkingApplication",
+  "url": "https://tinyobjects.studio/relay/",
+  "downloadUrl": "https://apps.apple.com/app/id6792389950",
+  "installUrl": "https://apps.apple.com/app/id6792389950",
+  "image": "https://tinyobjects.studio/relay/relay-logo-512.png",
+  "screenshot": "https://tinyobjects.studio/relay/relay-og.png",
+  "description": "RELAY is a retro chat app where conversations disappear by design. Each room keeps only its 40 most recent messages; everything older is permanently deleted. Built like a 1990s desktop operating system, with seventeen themes, four mini-games, a mini-internet and a hidden pixel-art shooter. Sign in with Apple, no personal data collected.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "tiny objects",
+    "url": "https://tinyobjects.studio/",
+    "email": "hello@tinyobjects.studio"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "tiny objects",
+    "url": "https://tinyobjects.studio/"
+  }
+}
+</script>
+
+<style>
+/* ============================================================
+   RELAY — promo page.  A 1990s desktop OS rendered as a page.
+   Fonts (Press Start 2P + VT323) and screenshots are the app's
+   own, embedded as data URIs so the file is fully self-contained.
+   ============================================================ */
+@font-face{
+  font-family:"PressStart";
+  src:url(fonts/PressStart.woff2) format("woff2"),url(fonts/PressStart.ttf) format("truetype");
+  font-display:swap;
+}
+@font-face{
+  font-family:"VT323";
+  src:url(fonts/VT323.woff2) format("woff2"),url(fonts/VT323.ttf) format("truetype");
+  font-display:swap;
+}
+
+:root{
+  --desktop:#009193;          /* brand teal — the wallpaper            */
+  --desktop-2:#017a7c;        /* deeper teal for the vignette          */
+  --dot:rgba(255,255,255,.16);/* dotted-grid wallpaper texture         */
+  --panel:#c0c0c0;            /* silver window body                    */
+  --panel-in:#d7d3cb;         /* warmer inset silver                   */
+  --paper:#ffffff;            /* white content area                    */
+  --ink:#161616;              /* text on silver / white                */
+  --ink-2:#494842;            /* muted ink                             */
+  --navy:#011993;             /* brand blue — active title bars        */
+  --navy-2:#2626d6;           /* title-bar highlight                   */
+  --lite:#ffffff;             /* bevel light                           */
+  --shad:#828089;             /* bevel shadow                          */
+  --shad-2:#2f2f36;           /* bevel deep shadow                     */
+  --mag:#c000c0;
+  --amber:#ffb000;
+  --grn:#0a7a12;
+  --red:#b40000;
+  --teal-ink:#036a6c;
+  --blue-ink:#1a1acc;
+  --maxw:1080px;
+}
+@media (prefers-color-scheme:dark){
+  /* Committed single look (a teal desktop). On a dark host we only
+     settle the wallpaper down a touch; windows stay silver + ink. */
+  :root:not([data-theme="light"]){
+    --desktop:#036a6c;
+    --desktop-2:#024e50;
+    --dot:rgba(255,255,255,.10);
+  }
+}
+:root[data-theme="dark"]{
+  --desktop:#036a6c; --desktop-2:#024e50; --dot:rgba(255,255,255,.10);
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  font-family:"VT323",ui-monospace,monospace;
+  color:var(--ink);
+  background-color:var(--desktop);
+  background-image:
+    radial-gradient(var(--dot) 1.6px, transparent 1.7px),
+    radial-gradient(circle at 50% 0%, var(--desktop) 0%, var(--desktop-2) 100%);
+  background-size:23px 23px, 100% 100%;
+  background-attachment:fixed, fixed;
+  -webkit-font-smoothing:none;
+  font-smooth:never;
+  line-height:1.35;
+}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+picture{display:contents}img{display:block;max-width:100%}
+a{color:var(--blue-ink)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+
+/* ---- window chrome ---------------------------------------- */
+.win{
+  background:var(--panel);
+  border:2px solid;
+  border-color:var(--lite) var(--shad-2) var(--shad-2) var(--lite);
+  box-shadow:
+    inset -2px -2px 0 var(--shad),
+    inset 2px 2px 0 #ececec,
+    5px 6px 0 rgba(0,0,0,.28);
+}
+.tbar{
+  display:flex;align-items:center;gap:8px;
+  padding:5px 6px 5px 9px;
+  background:linear-gradient(90deg,var(--navy),var(--navy-2));
+  color:#fff;
+  font-family:"VT323",monospace;
+  font-size:21px;letter-spacing:.5px;
+  border-bottom:2px solid var(--shad-2);
+}
+.tbar .dots{letter-spacing:2px;opacity:.85;font-size:15px}
+.tbar .ttl{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tbar .sp{margin-left:auto}
+.tbtns{display:flex;gap:4px}
+.tbtn{
+  width:24px;height:22px;display:grid;place-items:center;
+  background:var(--panel);color:var(--ink);
+  font-size:14px;font-family:"VT323",monospace;line-height:1;
+  border:2px solid;border-color:var(--lite) var(--shad-2) var(--shad-2) var(--lite);
+}
+.pad{padding:20px 22px}
+.paper{background:var(--paper)}
+
+/* ---- generic bevelled button ------------------------------ */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:"VT323",monospace;font-size:23px;letter-spacing:.5px;
+  color:var(--ink);text-decoration:none;cursor:pointer;
+  background:var(--panel);
+  padding:12px 22px;
+  border:2px solid;border-color:var(--lite) var(--shad-2) var(--shad-2) var(--lite);
+  box-shadow:inset -2px -2px 0 var(--shad),inset 2px 2px 0 #efefef;
+}
+.btn:active{
+  border-color:var(--shad-2) var(--lite) var(--lite) var(--shad-2);
+  box-shadow:inset 2px 2px 0 var(--shad);
+  transform:translate(1px,1px);
+}
+.btn.primary{
+  background:linear-gradient(180deg,#2b2bdd,var(--navy));
+  color:#fff;font-size:26px;padding:16px 30px;
+  border-color:#7f7fff var(--shad-2) var(--shad-2) #7f7fff;
+}
+.btn.primary .k{color:var(--amber)}
+.btn .glyph{font-size:20px}
+
+/* ---- top menu bar ----------------------------------------- */
+.menubar{
+  position:sticky;top:0;z-index:60;
+  display:flex;align-items:center;gap:20px;
+  padding:6px 16px;
+  background:var(--panel);
+  border-bottom:2px solid var(--shad-2);
+  box-shadow:inset 0 2px 0 #fff,inset 0 -2px 0 var(--shad);
+  font-family:"VT323",monospace;font-size:19px;
+}
+.menubar .brand{display:flex;align-items:center;gap:8px;font-size:20px;letter-spacing:1px}
+.menubar .brand .chip{width:18px;height:16px;background:var(--navy);border:2px solid var(--shad-2);border-top-color:#fff;border-left-color:#fff}
+.menubar .m{color:var(--ink-2)}
+.menubar .m u{text-decoration-thickness:1px;text-underline-offset:2px}
+.menubar .right{margin-left:auto;display:flex;align-items:center;gap:16px;color:var(--ink)}
+.menubar .clock{font-variant-numeric:tabular-nums}
+@media (max-width:640px){.menubar .m{display:none}}
+
+/* ---- ticker (one tasteful marquee) ------------------------ */
+.ticker{
+  overflow:hidden;white-space:nowrap;
+  background:#000;color:var(--amber);
+  border-top:2px solid var(--shad);border-bottom:2px solid #000;
+  font-family:"VT323",monospace;font-size:19px;letter-spacing:1px;
+  padding:5px 0;
+}
+.ticker span{display:inline-block;padding-left:100%;animation:marq 26s linear infinite}
+@keyframes marq{to{transform:translateX(-100%)}}
+
+/* ---- shell / layout --------------------------------------- */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:34px 20px 20px}
+section{max-width:var(--maxw);margin:0 auto;padding:14px 20px}
+.eyebrow{
+  font-family:"PressStart",monospace;font-size:11px;letter-spacing:1px;
+  color:#eafffb;text-shadow:2px 2px 0 rgba(0,0,0,.35);
+}
+.stitle{
+  font-family:"VT323",monospace;color:#fff;
+  font-size:clamp(28px,5vw,44px);line-height:1.02;margin:6px 0 4px;
+  text-shadow:2px 2px 0 rgba(0,0,0,.30);text-wrap:balance;
+}
+.slead{color:#eafffb;font-size:20px;max-width:60ch;text-shadow:1px 1px 0 rgba(0,0,0,.25)}
+
+/* ---- HERO -------------------------------------------------- */
+.hero{
+  display:grid;grid-template-columns:1.15fr .85fr;gap:34px;align-items:center;
+  max-width:var(--maxw);margin:0 auto;padding:26px 20px 8px;
+}
+.hero .kick{
+  font-family:"PressStart",monospace;font-size:12px;letter-spacing:1px;
+  color:#eafffb;text-shadow:2px 2px 0 rgba(0,0,0,.35);margin-bottom:22px;
+  display:inline-flex;gap:9px;align-items:center;
+}
+.wordmark{
+  font-family:"PressStart",monospace;
+  font-size:clamp(3.4rem,11.5vw,8rem);line-height:.94;margin:0;
+  color:#fff;letter-spacing:2px;
+  text-shadow:5px 5px 0 #000,7px 7px 0 rgba(0,0,0,.25);
+}
+.hero .tag{
+  font-size:clamp(26px,4.5vw,40px);color:#fff;margin:18px 0 6px;
+  text-shadow:2px 2px 0 rgba(0,0,0,.32);
+}
+.hero .tag .cur{color:var(--amber);animation:blink 1.05s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hero .sub{font-size:21px;color:#eafffb;max-width:46ch;text-shadow:1px 1px 0 rgba(0,0,0,.28)}
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin:26px 0 12px}
+.meta{font-size:19px;color:#dffcf8;text-shadow:1px 1px 0 rgba(0,0,0,.25)}
+.meta b{color:#fff;font-weight:400}
+
+/* stacked screenshots in the hero */
+.hero-art{position:relative;min-height:520px}
+.frame{
+  background:var(--panel);
+  border:2px solid;border-color:var(--lite) var(--shad-2) var(--shad-2) var(--lite);
+  box-shadow:inset -2px -2px 0 var(--shad),inset 2px 2px 0 #efefef,7px 9px 0 rgba(0,0,0,.32);
+  padding:0;overflow:hidden;
+}
+.frame .tbar{font-size:19px}
+.frame img{width:100%;height:auto;image-rendering:pixelated}
+.hero-art .a{position:absolute;width:66%;left:0;top:14px;transform:rotate(-2.5deg);z-index:1}
+.hero-art .b{position:absolute;width:70%;right:0;top:40px;transform:rotate(2deg);z-index:2}
+
+/* ---- DISSOLVE DEMO ---------------------------------------- */
+.demo-wrap{max-width:760px;margin:6px auto 0}
+.demo{overflow:hidden}
+.demo .top{
+  display:flex;align-items:center;gap:10px;justify-content:space-between;
+  padding:7px 12px;background:var(--panel);border-bottom:2px solid var(--shad);
+  font-size:18px;color:var(--ink);
+}
+.demo .who{color:var(--teal-ink);text-decoration:underline}
+.mem{display:flex;align-items:center;gap:7px;font-size:16px}
+.mem .bar{width:78px;height:13px;background:#fff;border:2px solid var(--shad-2);padding:1px}
+.mem .fill{height:100%;background:var(--grn);width:70%}
+.log{
+  background:#fff;height:340px;overflow:hidden;position:relative;
+  padding:12px 14px;font-size:19px;line-height:1.3;
+}
+.log .msg{margin:0 0 3px;overflow:hidden}
+.log .t{color:#9a9a9a}
+.log .n-sys{color:var(--teal-ink)} .log .n-ana{color:var(--mag)}
+.log .n-pix3l{color:#b3760a} .log .n-pixel{color:var(--grn)}
+.log .n-modem{color:var(--blue-ink)} .log .n-me{color:#0a6b12}
+.log .msg.enter{animation:enter .32s ease-out both}
+@keyframes enter{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+.log .msg.gone{animation:dissolve .8s steps(6,end) forwards}
+@keyframes dissolve{
+  0%{opacity:1}
+  15%{opacity:.55;transform:translateX(-2px)}
+  30%{opacity:.85;transform:translateX(3px) skewX(7deg);letter-spacing:1px}
+  55%{opacity:.4;transform:translateX(-3px) skewX(-5deg)}
+  100%{opacity:0;transform:translateX(0) scaleY(.55);max-height:0;margin:0}
+}
+.demo .foot{padding:9px 12px;background:var(--panel);border-top:2px solid var(--shad);font-size:17px;color:var(--ink-2)}
+.demo-cap{color:#eafffb;text-align:center;font-size:19px;margin-top:14px;text-shadow:1px 1px 0 rgba(0,0,0,.28)}
+
+/* ---- FEATURE WINDOWS -------------------------------------- */
+.feats{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:8px}
+.feat .body{display:flex;gap:18px;padding:18px}
+.feat .shot{
+  flex:0 0 190px;align-self:flex-start;
+  border:2px solid;border-color:var(--shad-2) var(--lite) var(--lite) var(--shad-2);
+  background:#000;overflow:hidden;
+}
+.feat .shot img{width:100%;height:auto;image-rendering:pixelated}
+.feat h3{
+  font-family:"VT323",monospace;font-weight:400;
+  font-size:27px;line-height:1.05;margin:2px 0 8px;color:var(--ink);
+}
+.feat p{margin:0 0 10px;font-size:18px;color:#25251f;line-height:1.32}
+.feat .flag{
+  display:inline-block;font-size:15px;letter-spacing:.5px;
+  background:var(--navy);color:#fff;padding:2px 9px;margin-top:2px;
+}
+.feat .flag.mag{background:var(--mag)} .feat .flag.amb{background:#8a5c00}
+.feat .flag.grn{background:var(--grn)}
+
+/* ---- SPEC + SHAREWARE ------------------------------------- */
+.two{display:grid;grid-template-columns:1.05fr .95fr;gap:26px;align-items:start}
+.spec .rows{font-size:19px;line-height:1.85;color:var(--ink);white-space:pre-wrap}
+.spec .rows .k{color:var(--ink)} .spec .rows .dot{color:var(--shad)} .spec .rows .v{color:var(--blue-ink)}
+.readme .paper{padding:18px 20px}
+.readme p{margin:0 0 12px;font-size:19px;line-height:1.4;color:#1d1d18}
+.readme .stamp{
+  display:inline-block;border:2px solid var(--red);color:var(--red);
+  padding:3px 10px;font-size:16px;letter-spacing:1px;transform:rotate(-3deg);margin-top:4px;
+}
+
+/* ---- INSTALL --------------------------------------------- */
+.install{max-width:760px;margin:0 auto}
+.install .paper{padding:26px 24px;text-align:center}
+.install .ico{
+  width:96px;height:96px;margin:0 auto 14px;
+  image-rendering:pixelated;
+  border:2px solid var(--shad-2);box-shadow:4px 4px 0 rgba(0,0,0,.25);
+}
+.install h2{font-family:"VT323",monospace;font-weight:400;font-size:34px;margin:0 0 6px;color:var(--ink)}
+.install p{font-size:19px;color:var(--ink-2);margin:0 0 18px}
+.install .cta{justify-content:center;margin-bottom:6px}
+
+/* ---- TASKBAR / FOOTER ------------------------------------- */
+.taskbar{
+  max-width:var(--maxw);margin:30px auto 40px;
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  padding:8px 12px;background:var(--panel);
+  border:2px solid;border-color:var(--lite) var(--shad-2) var(--shad-2) var(--lite);
+  box-shadow:inset -2px -2px 0 var(--shad),inset 2px 2px 0 #efefef;
+  font-family:"VT323",monospace;font-size:18px;
+}
+.taskbar .start{
+  display:inline-flex;align-items:center;gap:8px;font-size:19px;letter-spacing:.5px;
+  padding:6px 14px;background:var(--panel);
+  border:2px solid;border-color:var(--lite) var(--shad-2) var(--shad-2) var(--lite);
+  box-shadow:inset -1px -1px 0 var(--shad),inset 1px 1px 0 #efefef;
+}
+.taskbar .start .chip{width:16px;height:14px;background:var(--navy);border:1px solid #fff}
+.taskbar a{color:var(--ink);text-decoration:none}
+.taskbar a:hover{text-decoration:underline}
+.taskbar .links{display:flex;gap:18px;flex-wrap:wrap}
+.taskbar .tclock{margin-left:auto;font-variant-numeric:tabular-nums;
+  padding:5px 12px;border:2px solid;border-color:var(--shad-2) var(--lite) var(--lite) var(--shad-2)}
+.legal{max-width:var(--maxw);margin:0 auto 46px;text-align:center;color:#dffcf8;font-size:16px;text-shadow:1px 1px 0 rgba(0,0,0,.25)}
+
+/* reveal-on-scroll */
+.reveal{opacity:0;transform:translateY(16px)}
+.reveal.in{opacity:1;transform:none;transition:opacity .5s ease,transform .5s ease}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;gap:20px}
+  .hero-art{min-height:430px;margin-top:6px}
+  .feats{grid-template-columns:1fr}
+  .two{grid-template-columns:1fr}
+}
+@media (max-width:520px){
+  .feat .body{flex-direction:column}
+  .feat .shot{flex-basis:auto;max-width:230px}
+  .hero-art .a{width:70%} .hero-art .b{width:74%}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+  .hero .tag .cur{opacity:1}
+}
+</style>
+</head>
+<body>
+<div class="menubar">
+  <span class="brand"><span class="chip" aria-hidden="true"></span>RELAY</span>
+  <span class="m"><u>F</u>ile</span>
+  <span class="m"><u>E</u>dit</span>
+  <span class="m"><u>V</u>iew</span>
+  <span class="m"><u>S</u>pecial</span>
+  <span class="right">
+    <span>tiny&nbsp;objects</span>
+    <span class="clock" id="menu-clock" aria-hidden="true">09:41</span>
+  </span>
+</div>
+
+<div class="ticker" aria-hidden="true"><span>★ RELAY 1.0 — out now on the App Store ★ nothing is ever saved ★ 17 themes, one per era ★ there is a hidden shooter ★ each room remembers only its last 40 messages ★ sign the guestbook ★ best viewed at any resolution ★&nbsp;&nbsp;&nbsp;</span></div>
+
+<header class="hero">
+  <div>
+    <div class="kick"><span aria-hidden="true">▚</span> tiny objects presents</div>
+    <h1 class="wordmark">RELAY</h1>
+    <p class="tag">Nothing is ever saved.<span class="cur" aria-hidden="true">_</span></p>
+    <p class="sub">A retro chat built like a 1990s desktop. Every room keeps only its last 40 messages — everything older dissolves, for good.</p>
+    <div class="cta">
+      <a class="btn primary" href="https://apps.apple.com/app/id6792389950"><span class="glyph" aria-hidden="true">▼</span> Download — <span class="k">Free</span></a>
+      <a class="btn" href="#demo"><span class="glyph" aria-hidden="true">▲</span> Watch it forget</a>
+    </div>
+    <p class="meta"><b>Free</b> · iOS 17+ · no account · no ads · sign in with Apple</p>
+  </div>
+  <div class="hero-art" aria-hidden="false">
+    <div class="frame a">
+      <div class="tbar"><span class="ttl">DESKTOP</span><span class="sp"></span><span class="tbtns"><span class="tbtn">_</span><span class="tbtn">□</span><span class="tbtn">x</span></span></div>
+      <picture><source type="image/webp" srcset="img/desktop.webp"><img src="img/desktop.png" alt="RELAY's teal desktop with program icons and a recycle bin" width="660" height="1434" decoding="async" fetchpriority="high"></picture>
+    </div>
+    <div class="frame b">
+      <div class="tbar"><span class="ttl">RELAY.EXE — #general</span><span class="sp"></span><span class="tbtns"><span class="tbtn">_</span><span class="tbtn">□</span><span class="tbtn">x</span></span></div>
+      <picture><source type="image/webp" srcset="img/general-chat.webp"><img src="img/general-chat.png" alt="The #general chat room, messages scrolling in a terminal window" width="660" height="1434" decoding="async" fetchpriority="high"></picture>
+    </div>
+  </div>
+</header>
+
+<section id="demo" class="reveal">
+  <div style="text-align:center;margin-bottom:16px">
+    <div class="eyebrow">01 — the whole idea</div>
+    <h2 class="stitle">Say something. Watch it go.</h2>
+    <p class="slead" style="margin:0 auto">Rooms remember the last 40 lines. This one remembers seven — just enough to watch it forget in real time.</p>
+  </div>
+  <div class="demo-wrap">
+    <div class="win demo">
+      <div class="tbar"><span class="dots" aria-hidden="true">▪▪▪</span><span class="ttl">#general</span><span class="sp"></span><span class="tbtns"><span class="tbtn">_</span><span class="tbtn">□</span><span class="tbtn">x</span></span></div>
+      <div class="top">
+        <span><span class="who">WHO(5)</span> general chat — everything…</span>
+        <span class="mem">MEM <span class="bar"><span class="fill" id="mem-fill"></span></span> <span id="mem-num">70%</span> FREE</span>
+      </div>
+      <div class="log" id="log" role="log" aria-label="A demo chat where old messages dissolve"></div>
+      <div class="foot">&gt; type — <span style="color:var(--teal-ink)">/help</span> for commands</div>
+    </div>
+    <p class="demo-cap">“this thread is a campfire, not a filing cabinet.”</p>
+  </div>
+</section>
+
+<section class="reveal" style="margin-top:12px">
+  <div style="text-align:center;margin-bottom:20px">
+    <div class="eyebrow">02 — what's on the disk</div>
+    <h2 class="stitle">A whole computer in your pocket.</h2>
+    <p class="slead" style="margin:0 auto">It doesn't look like a chat app because it isn't one. It's a tiny operating system, and chat is just one of the programs.</p>
+  </div>
+
+  <div class="feats">
+    <div class="win feat">
+      <div class="tbar"><span class="ttl">DESKTOP.SYS</span><span class="sp"></span><span class="tbtns"><span class="tbtn">_</span><span class="tbtn">□</span><span class="tbtn">x</span></span></div>
+      <div class="body paper">
+        <div class="shot"><picture><source type="image/webp" srcset="img/desktop-icons.webp"><img src="img/desktop-icons.png" alt="The RELAY desktop with RELAY.EXE, THEMES, PAINT, GAMES and BOOM.EXE icons" width="660" height="1434" decoding="async" loading="lazy"></picture></div>
+        <div>
+          <h3>It's an operating system</h3>
+          <p>Boot into a teal desktop with icons, a taskbar and a recycle bin. Programs open in draggable windows. Drag a file to the trash and it's gone — for real.</p>
+          <span class="flag">DESKTOP</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="win feat">
+      <div class="tbar"><span class="ttl">APPEARANCE.EXE</span><span class="sp"></span><span class="tbtns"><span class="tbtn">_</span><span class="tbtn">□</span><span class="tbtn">x</span></span></div>
+      <div class="body paper">
+        <div class="shot"><picture><source type="image/webp" srcset="img/themes.webp"><img src="img/themes.png" alt="The theme picker showing seventeen named skins" width="660" height="1434" decoding="async" loading="lazy"></picture></div>
+        <div>
+          <h3>Seventeen skins, one per era</h3>
+          <p>1-bit Macintosh, DOS Prompt, Amber CRT, Pocket LCD, Teletext, Luna Blue… each theme re-tints and re-fonts the entire system — and the sounds change with the decade.</p>
+          <span class="flag mag">17 THEMES</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="win feat">
+      <div class="tbar"><span class="ttl">BOOM.EXE</span><span class="sp"></span><span class="tbtns"><span class="tbtn">_</span><span class="tbtn">□</span><span class="tbtn">x</span></span></div>
+      <div class="body paper">
+        <div class="shot"><picture><source type="image/webp" srcset="img/shooter.webp"><img src="img/shooter.png" alt="A first-person pixel-art shooter with a demon, minimap and health face" width="660" height="1434" decoding="async" loading="lazy"></picture></div>
+        <div>
+          <h3>There's a shooter in here</h3>
+          <p>Somewhere on the desktop is a hidden first-person shooter. Demons, a shotgun, a health face that winces when you're hit. We're not going to tell you where it is.</p>
+          <span class="flag amb">HIDDEN</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="win feat">
+      <div class="tbar"><span class="ttl">WWW.EXE</span><span class="sp"></span><span class="tbtns"><span class="tbtn">_</span><span class="tbtn">□</span><span class="tbtn">x</span></span></div>
+      <div class="body paper">
+        <div class="shot"><picture><source type="image/webp" srcset="img/web-portal.webp"><img src="img/web-portal.png" alt="A fake 1990s web portal with a hand-sorted list of links" width="660" height="1434" decoding="async" loading="lazy"></picture></div>
+        <div>
+          <h3>The whole net, by hand</h3>
+          <p>Dial into a tiny fake 1990s internet: a hand-sorted portal, guestbooks, a webring, daily fortunes — and a banner that absolutely will not pay you $20.</p>
+          <span class="flag">14.4 kbps</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="win feat">
+      <div class="tbar"><span class="ttl">GAMES</span><span class="sp"></span><span class="tbtns"><span class="tbtn">_</span><span class="tbtn">□</span><span class="tbtn">x</span></span></div>
+      <div class="body paper">
+        <div class="shot"><picture><source type="image/webp" srcset="img/games.webp"><img src="img/games.png" alt="A games folder containing MINES, SKI, SOL and BRICKS" width="660" height="1434" decoding="async" loading="lazy"></picture></div>
+        <div>
+          <h3>Lose an afternoon</h3>
+          <p>MINES, SKI, SOL and BRICKS — four mini-games in a folder that proudly reports 0 bytes free. SKI just keeps getting faster until you don't.</p>
+          <span class="flag grn">4 GAMES</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="win feat">
+      <div class="tbar"><span class="ttl">DIRECT.MSG</span><span class="sp"></span><span class="tbtns"><span class="tbtn">_</span><span class="tbtn">□</span><span class="tbtn">x</span></span></div>
+      <div class="body paper">
+        <div class="shot"><picture><source type="image/webp" srcset="img/direct-message.webp"><img src="img/direct-message.png" alt="A private direct-message thread that also dissolves" width="660" height="1434" decoding="async" loading="lazy"></picture></div>
+        <div>
+          <h3>Just the two of you</h3>
+          <p>Private messages dissolve the same way rooms do. Ring someone's actual phone with a single bell. As pix3l puts it: “no logs, no masters.”</p>
+          <span class="flag mag">🔔 RING</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="two">
+    <div class="win spec">
+      <div class="tbar"><span class="ttl">RELAY.SYS — properties</span><span class="sp"></span><span class="tbtns"><span class="tbtn">_</span><span class="tbtn">□</span><span class="tbtn">x</span></span></div>
+      <div class="pad paper">
+<div class="rows"><span class="k">Rooms</span> <span class="dot">·············</span> <span class="v">ephemeral, last 40 msgs</span>
+<span class="k">Themes</span> <span class="dot">············</span> <span class="v">17 (2 free)</span>
+<span class="k">Wallpapers</span> <span class="dot">········</span> <span class="v">download packs, free</span>
+<span class="k">Mini-games</span> <span class="dot">········</span> <span class="v">MINES · SKI · SOL · BRICKS</span>
+<span class="k">Hidden shooter</span> <span class="dot">····</span> <span class="v">1 — find it</span>
+<span class="k">Mini-internet</span> <span class="dot">·····</span> <span class="v">portal · guestbooks · webring</span>
+<span class="k">Paint</span> <span class="dot">·············</span> <span class="v">pixel art → your homepage</span>
+<span class="k">Sign-in</span> <span class="dot">···········</span> <span class="v">Apple — nothing collected</span>
+<span class="k">Price</span> <span class="dot">·············</span> <span class="v">free to download</span></div>
+      </div>
+    </div>
+
+    <div class="win readme">
+      <div class="tbar"><span class="ttl">READ-ME.TXT</span><span class="sp"></span><span class="tbtns"><span class="tbtn">_</span><span class="tbtn">□</span><span class="tbtn">x</span></span></div>
+      <div class="paper">
+        <p><b>RELAY is free.</b> The two default themes and every wallpaper pack cost nothing.</p>
+        <p>Extra themes, more screensavers and BOOM.EXE are a single one-time unlock. No ads. No subscriptions. No account to create.</p>
+        <p>Sign in with Apple, chat, forget, close the lid. We keep no logs of what you say — the app forgets on purpose, and so do we.</p>
+        <span class="stamp">no logs · no masters</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="install win">
+    <div class="tbar"><span class="ttl">INSTALL — RELAY.EXE</span><span class="sp"></span><span class="tbtns"><span class="tbtn">_</span><span class="tbtn">□</span><span class="tbtn">x</span></span></div>
+    <div class="paper">
+      <picture><source type="image/webp" srcset="img/app-icon.webp"><img src="img/app-icon.png" class="ico" alt="The RELAY app icon" width="256" height="256" decoding="async" loading="lazy"></picture>
+      <h2>Get RELAY for iPhone</h2>
+      <p>Free · iOS 17 or later · English · by tiny objects</p>
+      <div class="cta">
+        <a class="btn primary" href="https://apps.apple.com/app/id6792389950"><span class="glyph" aria-hidden="true">▼</span> Download on the App Store</a>
+      </div>
+      <p style="font-size:17px;margin-top:8px">“your words had a good run. 40 messages of fame.”</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="taskbar">
+    <span class="start"><span class="chip" aria-hidden="true"></span>tiny objects</span>
+    <span class="links">
+      <a href="https://apps.apple.com/app/id6792389950">App Store</a>
+      <a href="https://tinyobjects.studio/">tinyobjects.studio</a>
+      <a href="mailto:hello@tinyobjects.studio">hello@tinyobjects.studio</a>
+    </span>
+    <span class="tclock" id="task-clock" aria-hidden="true">09:41</span>
+  </div>
+  <p class="legal">© 2026 tiny objects · RELAY forgets on purpose · made with love and no database</p>
+</footer>
+
+<script>
+(function(){
+  /* live clocks — the little OS touch */
+  function tick(){
+    try{
+      var d=new Date();
+      var s=String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');
+      var a=document.getElementById('menu-clock'), b=document.getElementById('task-clock');
+      if(a)a.textContent=s; if(b)b.textContent=s;
+    }catch(e){}
+  }
+  tick(); setInterval(tick,10000);
+
+  /* reveal-on-scroll */
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revs=[].slice.call(document.querySelectorAll('.reveal'));
+  if(reduce || !('IntersectionObserver' in window)){
+    revs.forEach(function(r){r.classList.add('in');});
+  }else{
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    },{threshold:.12});
+    revs.forEach(function(r){io.observe(r);});
+  }
+
+  /* ---- the dissolve demo ---- */
+  var LINES=[
+    ['sys',  'sys0p',     'read the topic. the topic is the manual. there is no manual'],
+    ['modem','modem_boy', "my neighbor has cable internet. i've seen it. it's beautiful"],
+    ['pix3l','pix3l',     "my site has a guestbook now. sign it or we're not friends"],
+    ['ana',  'ana_bbs',   'somewhere up there my best joke ever dissolved. you missed it'],
+    ['pixel','pixel',     'this thread is a campfire, not a filing cabinet'],
+    ['sys',  'sys0p',     "i've kicked people for less. i've also kicked people for more"],
+    ['pix3l','pix3l',     "if i say something dumb it's gone in 40, deal"],
+    ['modem','modem_boy', 'just defragged the family PC, felt like a surgeon'],
+    ['pixel','pixel',     'no logs, no masters'],
+    ['ana',  'ana_bbs',   'your words had a good run. 40 messages of fame'],
+    ['pix3l','pix3l',     'made my own starfield background, NASA could never'],
+    ['pixel','pixel',     'what you said 40 messages ago is between you and the void now']
+  ];
+  var log=document.getElementById('log');
+  if(!log) return;
+  var MAX=7, i=0, mm=13, timer=null, seeded=false;
+  function stamp(){ mm++; if(mm>59)mm=0; return '[02:'+String(mm).padStart(2,'0')+']'; }
+  function add(){
+    var L=LINES[i%LINES.length]; i++;
+    var d=document.createElement('div');
+    d.className='msg'+(seeded?' enter':'');
+    d.innerHTML='<span class="t">'+stamp()+'</span> <span class="n-'+L[0]+'">&lt;'+L[1]+'&gt;</span> '+
+      L[2].replace(/&/g,'&amp;').replace(/</g,'&lt;');
+    log.appendChild(d);
+    while(log.children.length>MAX){
+      var old=log.firstChild;
+      if(old.classList.contains('gone')) { log.removeChild(old); continue; }
+      old.classList.add('gone');
+      (function(node){ setTimeout(function(){ if(node&&node.parentNode)node.parentNode.removeChild(node); },820); })(old);
+      break;
+    }
+  }
+  /* seed the window full, then start streaming */
+  for(var s=0;s<MAX;s++) add();
+  seeded=true;
+
+  function start(){ if(timer)return; timer=setInterval(add,2300); }
+  function stop(){ if(timer){clearInterval(timer);timer=null;} }
+  if(reduce){
+    /* static: show the top line mid-dissolve, like the app screenshots */
+    if(log.firstChild) log.firstChild.style.opacity='.45';
+  }else if('IntersectionObserver' in window){
+    var io2=new IntersectionObserver(function(es){
+      es.forEach(function(e){ e.isIntersecting?start():stop(); });
+    },{threshold:.25});
+    io2.observe(log);
+  }else{ start(); }
+})();
+</script>
+</body>
+</html>
